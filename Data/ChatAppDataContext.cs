@@ -12,10 +12,7 @@ namespace ChatApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Messages>()
-                .HasKey(c => new { c.Message, c.User, c.Time });
-            modelBuilder.Entity<Users>()
-                .HasKey(c => new { c.User });
+            modelBuilder.UseSerialColumns();
         }
 
 
