@@ -11,32 +11,37 @@ namespace ChatApp.Data
             _context = context;
         }
 
+        //POST a message api/Messages
         public void SendMessage(string message, string user, string time)
         {
             _context.Messages.Add(new Messages { Message = message, User = user, Time = time });
             _context.SaveChanges();
         }
 
-        public void DeleteMessage(string message, string user, string time)
+        //DELTE a message api/Messages/id
+        public void DeleteMessage(int messageid)
         {
-            var messageToDelete = _context.Messages.Find(message, user, time);
+            var messageToDelete = _context.Messages.Find(messageid);
             _context.Messages.Remove(messageToDelete);
             _context.SaveChanges();
         }
 
+        //POST a user api/Users
         public void AddUser(string user)
         {
             _context.Users.Add(new Users { User = user });
             _context.SaveChanges();
         }
 
-        public void DeleteUser(int userid, string user)
+        //DELETE a user api/Users/id
+        public void DeleteUser(int userid)
         {
-            var userToDelete = _context.Users.Find(user);
+            var userToDelete = _context.Users.Find(userid);
             _context.Users.Remove(userToDelete);
             _context.SaveChanges();
         }
 
+        //GET messages api/Messages
         public string[] GetMessages()
         {
             var messages = _context.Messages.ToArray();
@@ -48,6 +53,7 @@ namespace ChatApp.Data
             return messagesArray;
         }
 
+        //GET users api/Users
         public string[] GetUsers()
         {
             var users = _context.Users.ToArray();
