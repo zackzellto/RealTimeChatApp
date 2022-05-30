@@ -12,12 +12,9 @@ namespace ChatApp.Data
 
         void DeleteUser(int userid);
 
-
         string[] GetMessages();
         string[] GetUsers();
-
         string[] GetUserById(int userid);
-
         string[] GetMessageById(int messageid);
     }
 }

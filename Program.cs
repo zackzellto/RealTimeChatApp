@@ -20,7 +20,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<ChatAppDataContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("SquashableDatabase"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ChatAppDatabase"));
 });
 
 var app = builder.Build();
