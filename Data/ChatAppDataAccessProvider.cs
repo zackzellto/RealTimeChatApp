@@ -65,5 +65,22 @@ namespace ChatApp.Data
             return usersArray;
         }
 
+        public string[] GetUserById(int userid)
+        {
+            var user = _context.Users.Find(userid);
+            string[] userArray = new string[1];
+            userArray[0] = user.User;
+            return userArray;
+        }
+
+        public string[] GetMessageById(int messageid)
+        {
+            var message = _context.Messages.Find(messageid);
+            string[] messageArray = new string[2];
+            messageArray[0] = message.Message;
+            messageArray[1] = message.User;
+            return messageArray;
+        }
+
     }
 }
