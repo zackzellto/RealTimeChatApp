@@ -1,4 +1,5 @@
 using ChatApp.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -9,11 +10,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
+
 // Add services to the container.
 
 builder.Services.AddSwaggerGen(s =>
 {
     s.SwaggerDoc("v1", new OpenApiInfo { Title = "ChatApp API", Version = "v1", Description = "ChatApp API for retrieving messages and users" });
+
 });
 
 builder.Services.AddControllers();
@@ -42,10 +45,10 @@ if (!app.Environment.IsDevelopment())
 
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Squashable API V1");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ChatApp API V1");
         c.RoutePrefix = "swagger";
     });
-  
+
 }
 
 app.UseHttpsRedirection();
