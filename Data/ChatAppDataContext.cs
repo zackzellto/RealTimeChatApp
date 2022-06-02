@@ -1,4 +1,4 @@
-using System;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace ChatApp.Data
@@ -12,7 +12,7 @@ namespace ChatApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.UseSerialColumns();
+            base.OnModelCreating(modelBuilder);
         }
 
 
